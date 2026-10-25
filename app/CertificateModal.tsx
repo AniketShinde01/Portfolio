@@ -55,11 +55,12 @@ export default function CertificateModal() {
             <div className="certificate-document" aria-label="Certificate page">
               <Image
                 className="certificate-page-image"
-                src="/assets/codevita-certificate-page.png"
+                src="/assets/codevita-certificate-page.webp"
                 alt="TCS CodeVita Season 10 certificate awarded to Aniket Shinde"
                 width={1651}
                 height={1105}
                 sizes="90vw"
+                unoptimized
                 style={{ width: `${zoom * 100}%` }}
               />
             </div>

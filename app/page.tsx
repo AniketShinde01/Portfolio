@@ -45,7 +45,7 @@ export default function Home() {
           </div>
           <div className="hero-art">
             <div className="art-grid" /><div className="art-orbit orbit-one" /><div className="art-orbit orbit-two" />
-            <div className="portrait-frame"><Image src="/assets/aniket-shinde.jpg" alt="Aniket Shinde" fill priority sizes="(max-width: 620px) 70vw, 300px" /></div>
+            <div className="portrait-frame"><Image src="/assets/aniket-shinde.webp" alt="Aniket Shinde" fill priority unoptimized sizes="(max-width: 620px) 70vw, 300px" /></div>
             <span className="art-label label-top">FRONTEND / PUNE</span><span className="art-label label-bottom">19°59′ N · INDIA</span>
             <span className="portrait-note">DESIGN. BUILD. IMPROVE.</span>
           </div>

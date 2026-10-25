@@ -27,13 +27,14 @@ export default function ResumeViewer() {
       <div className="resume-document" aria-label="Resume page">
         <Image
           className="resume-page-image"
-          src="/assets/aniket-shinde-resume-page.png"
+          src="/assets/aniket-shinde-resume-page.webp"
           alt="Aniket Shinde’s one-page frontend developer resume"
           width={1275}
           height={1651}
           sizes="(max-width: 1100px) 95vw, 1000px"
           style={{ width: `${zoom * 100}%` }}
           priority
+          unoptimized
         />
       </div>
     </section>
