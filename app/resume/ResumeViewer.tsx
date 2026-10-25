@@ -5,6 +5,7 @@ import Image from "next/image";
 
 export default function ResumeViewer() {
   const [zoom, setZoom] = useState(1);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <section className="resume-viewer" aria-label="Resume document">
@@ -25,17 +26,20 @@ export default function ResumeViewer() {
         </div>
       </div>
       <div className="resume-document" aria-label="Resume page">
-        <Image
-          className="resume-page-image"
-          src="/assets/aniket-shinde-resume-page.webp"
-          alt="Aniket Shinde’s one-page frontend developer resume"
-          width={1275}
-          height={1651}
-          sizes="(max-width: 1100px) 95vw, 1000px"
-          style={{ width: `${zoom * 100}%` }}
-          priority
-          unoptimized
-        />
+        <div className="document-image-shell resume-image-shell" style={{ width: `${zoom * 100}%` }}>
+          {!isLoaded && <div className="document-shimmer" role="status" aria-label="Loading resume" />}
+          <Image
+            className={`resume-page-image${isLoaded ? " document-image-loaded" : ""}`}
+            src="/assets/aniket-shinde-resume-page.webp"
+            alt="Aniket Shinde’s one-page frontend developer resume"
+            width={1275}
+            height={1651}
+            sizes="(max-width: 1100px) 95vw, 1000px"
+            priority
+            unoptimized
+            onLoad={() => setIsLoaded(true)}
+          />
+        </div>
       </div>
     </section>
   );

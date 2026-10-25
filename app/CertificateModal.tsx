@@ -6,6 +6,7 @@ import Image from "next/image";
 export default function CertificateModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [zoom, setZoom] = useState(1);
+  const [isLoaded, setIsLoaded] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
 
@@ -26,7 +27,7 @@ export default function CertificateModal() {
 
   return (
     <>
-      <button ref={triggerRef} className="certificate-link" type="button" onClick={() => { setZoom(1); setIsOpen(true); }}>
+      <button ref={triggerRef} className="certificate-link" type="button" onClick={() => { setZoom(1); setIsLoaded(false); setIsOpen(true); }}>
         View CodeVita certificate <span aria-hidden="true" className="arrow">↗</span>
       </button>
       {isOpen && (
@@ -53,16 +54,19 @@ export default function CertificateModal() {
               </div>
             </header>
             <div className="certificate-document" aria-label="Certificate page">
-              <Image
-                className="certificate-page-image"
-                src="/assets/codevita-certificate-page.webp"
-                alt="TCS CodeVita Season 10 certificate awarded to Aniket Shinde"
-                width={1651}
-                height={1105}
-                sizes="90vw"
-                unoptimized
-                style={{ width: `${zoom * 100}%` }}
-              />
+              <div className="document-image-shell certificate-image-shell" style={{ width: `${zoom * 100}%` }}>
+                {!isLoaded && <div className="document-shimmer" role="status" aria-label="Loading certificate" />}
+                <Image
+                  className={`certificate-page-image${isLoaded ? " document-image-loaded" : ""}`}
+                  src="/assets/codevita-certificate-page.webp"
+                  alt="TCS CodeVita Season 10 certificate awarded to Aniket Shinde"
+                  width={1651}
+                  height={1105}
+                  sizes="90vw"
+                  unoptimized
+                  onLoad={() => setIsLoaded(true)}
+                />
+              </div>
             </div>
           </section>
         </div>
