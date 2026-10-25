@@ -49,7 +49,7 @@ export default function CertificateModal() {
                   <span>{Math.round(zoom * 100)}%</span>
                   <button type="button" onClick={() => setZoom((current) => Math.min(1.8, current + 0.1))} aria-label="Zoom in">+</button>
                 </div>
-                <a className="certificate-download" href="/assets/codevita-certificate.pdf" download>Download <span aria-hidden="true">↓</span></a>
+                <a className="certificate-download" href="/assets/codevita-certificate.pdf" download aria-label="Download CodeVita certificate PDF"><span className="certificate-download-label">Download</span><span aria-hidden="true">↓</span></a>
                 <button ref={closeRef} className="certificate-close" type="button" onClick={() => setIsOpen(false)} aria-label="Close certificate viewer">×</button>
               </div>
             </header>

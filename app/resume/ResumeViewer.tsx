@@ -20,8 +20,8 @@ export default function ResumeViewer() {
             <span>{Math.round(zoom * 100)}%</span>
             <button type="button" onClick={() => setZoom((current) => Math.min(1.8, current + 0.1))} aria-label="Zoom in">+</button>
           </div>
-          <a className="resume-download" href="/assets/aniket-shinde-resume.pdf" download>
-            Download PDF <span aria-hidden="true">↓</span>
+          <a className="resume-download" href="/assets/aniket-shinde-resume.pdf" download aria-label="Download resume PDF">
+            <span className="download-label">Download PDF</span><span className="download-icon" aria-hidden="true">↓</span>
           </a>
         </div>
       </div>
@@ -39,6 +39,10 @@ export default function ResumeViewer() {
             unoptimized
             onLoad={() => setIsLoaded(true)}
           />
+          <a className="resume-link-hotspot hotspot-email" href="mailto:shindeaniketsanjay@gmail.com" aria-label="Email Aniket Shinde" title="Email Aniket Shinde" />
+          <a className="resume-link-hotspot hotspot-github" href="https://github.com/AniketShinde01" target="_blank" rel="noreferrer" aria-label="GitHub: AniketShinde01" title="Open Aniket’s GitHub profile" />
+          <a className="resume-link-hotspot hotspot-linkedin" href="https://www.linkedin.com/in/aniket-shinde-2843771b8/" target="_blank" rel="noreferrer" aria-label="LinkedIn: Aniket Shinde" title="Open Aniket’s LinkedIn profile" />
+          <a className="resume-link-hotspot hotspot-leetcode" href="https://leetcode.com/u/AniketShinde19" target="_blank" rel="noreferrer" aria-label="LeetCode: AniketShinde19" title="Open Aniket’s LeetCode profile" />
         </div>
       </div>
     </section>
